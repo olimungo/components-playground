@@ -1,5 +1,4 @@
 import React from 'react';
-import { MdVoicemail } from 'react-icons/md';
 import './button.css';
 
 interface ButtonProps {
