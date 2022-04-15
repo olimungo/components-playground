@@ -1,0 +1,30 @@
+.bounce {
+    animation: bounce-in 0.25s ease-out forwards;
+    transition-duration: 0.2s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bounce:active {
+    animation: bounce-out 0.25s ease-out forwards;
+}
+
+@keyframes bounce-in {
+    0% {
+        transform: scale(0.95);
+    }
+    40% {
+        transform: scale(1.02);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes bounce-out {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0.95);
+    }
+}

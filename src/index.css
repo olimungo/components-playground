@@ -2,16 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap');
+
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-        'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-        'Helvetica Neue', sans-serif;
+    font-family: 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-}
 
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-        monospace;
+    --primary: 121 62 249;
+    --primary-focus: 80 19 184;
+    --secondary: 217 39 169;
+    --secondary-focus: 173 31 134;
+    --success: 58 158 121;
+    --success-focus: 24 123 86;
+    --danger: 222 70 70;
+    --danger-focus: 186 37 37;
+    --warning: 228 131 72;
+    --warning-focus: 204 100 36;
+    --info: 58 157 248;
+    --info-focus: 46 127 201;
+    --light: 226 232 240;
+    --light-focus: 193 202 213;
+    --dark: 51 65 84;
+    --dark-focus: 32 43 57;
 }
