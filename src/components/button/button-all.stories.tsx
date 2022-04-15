@@ -249,7 +249,7 @@ ContentSize.args = {
             props: {
                 label: 'XS',
                 theme: 'primary',
-                buttonSize: 'xs',
+                width: 'xs',
             },
         },
         {
@@ -257,7 +257,7 @@ ContentSize.args = {
             props: {
                 label: 'SM',
                 theme: 'secondary',
-                buttonSize: 'sm',
+                width: 'sm',
             },
         },
         {
@@ -265,7 +265,7 @@ ContentSize.args = {
             props: {
                 label: 'MD',
                 theme: 'success',
-                buttonSize: 'md',
+                width: 'md',
             },
         },
         {
@@ -273,7 +273,7 @@ ContentSize.args = {
             props: {
                 label: 'LG',
                 theme: 'warning',
-                buttonSize: 'lg',
+                width: 'lg',
             },
         },
         {
@@ -281,7 +281,7 @@ ContentSize.args = {
             props: {
                 label: 'XL',
                 theme: 'info',
-                buttonSize: 'xl',
+                width: 'xl',
             },
         },
     ],
@@ -307,8 +307,8 @@ Icon.args = {
                 theme: 'secondary',
                 icon: RiAlertFill,
                 iconPosition: 'bottom',
-                buttonSize: 'xs',
-                contentSize: 'xs',
+                width: 'xs',
+                size: 'xs',
             },
         },
         {
@@ -317,8 +317,8 @@ Icon.args = {
                 label: 'Left',
                 theme: 'warning',
                 icon: RiChatNewFill,
-                contentSize: 'xs',
-                buttonSize: 'auto',
+                size: 'xs',
+                width: 'auto',
             },
         },
         {
@@ -328,8 +328,8 @@ Icon.args = {
                 theme: 'light',
                 icon: RiAddBoxLine,
                 iconPosition: 'right',
-                contentSize: 'lg',
-                buttonSize: 'auto',
+                size: 'lg',
+                width: 'auto',
                 skin: 'outline',
             },
         },
@@ -339,8 +339,8 @@ Icon.args = {
                 label: '',
                 theme: 'success',
                 icon: RiAlertFill,
-                contentSize: 'xs',
-                buttonSize: 'auto',
+                size: 'xs',
+                width: 'auto',
             },
         },
     ],

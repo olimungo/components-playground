@@ -37,6 +37,6 @@ Primary.args = {
 export const WithIcon = Template.bind({});
 WithIcon.args = {
     label: 'Primary',
-    buttonSize: 'md',
+    width: 'md',
     icon: RiCheckDoubleFill,
 };

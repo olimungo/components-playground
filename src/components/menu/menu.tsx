@@ -4,11 +4,12 @@ import { Size, TEXT_SIZES, Theme } from 'models';
 import { useEffect, useState } from 'react';
 import { IconType } from 'react-icons';
 import {
-    BACKGROUND_THEMES,
-    CONTENT_THEMES,
-    HIGHLIGHT_THEMES,
-    SEPARATOR_THEMES,
-} from './themes';
+    BACKGROUND_STYLES,
+    CONTENT_STYLES,
+    HIGHLIGHT_STYLES,
+    MARGIN_LEFT_STYLES,
+    SEPARATOR_STYLES,
+} from './styles';
 
 type ElementType = string | IconType | undefined;
 
@@ -92,37 +93,20 @@ function MenuItemComponent({
         } else {
             setHeaderClass(`cursor-pointer ${highlightClass}`);
         }
-    }, [menuItem, highlightClass]);
+    }, [menuItem, highlightClass, onClick]);
 
     useEffect(() => {
         setTextClass(TEXT_SIZES[size]);
-
-        switch (size) {
-            case 'xs':
-                setMarginLeftClass('ml-7');
-                break;
-            case 'sm':
-                setMarginLeftClass('ml-9');
-                break;
-            case 'md':
-                setMarginLeftClass('ml-10');
-                break;
-            case 'lg':
-                setMarginLeftClass('ml-[3rem]');
-                break;
-            case 'xl':
-                setMarginLeftClass('ml-[3rem]');
-                break;
-            default:
-                setMarginLeftClass('ml-10');
-        }
+        setMarginLeftClass(MARGIN_LEFT_STYLES[size]);
     }, [size]);
 
     return (
         <div className={`${contentClass}`}>
             <div
                 className={`flex items-center p-1 rounded-md ${headerClass}`}
-                onClick={() => onClick(menuItem.key)}
+                onClick={() =>
+                    menuItem.isHeader ? dummyCallback : onClick(menuItem.key)
+                }
             >
                 <MenuItemDecorator
                     value={menuItem.before}
@@ -190,42 +174,42 @@ export function Menu({
     onClick = dummyCallback,
 }: MenuProps) {
     const [contentClass, setContentClass] = useState(
-        CONTENT_THEMES[contentTheme]
+        CONTENT_STYLES[contentTheme]
     );
     const [separatorClass, setSeparatorClass] = useState(
-        SEPARATOR_THEMES[separatorTheme]
+        SEPARATOR_STYLES[separatorTheme]
     );
 
     const [backgroundClass, setBackgroundClass] = useState(
-        BACKGROUND_THEMES[backgroundTheme]
+        BACKGROUND_STYLES[backgroundTheme]
     );
 
-    const [iconClass, setIconClass] = useState(CONTENT_THEMES[iconTheme]);
+    const [iconClass, setIconClass] = useState(CONTENT_STYLES[iconTheme]);
 
     const [highlightClass, setHighlightClass] = useState(
-        HIGHLIGHT_THEMES[highlightTheme]
+        HIGHLIGHT_STYLES[highlightTheme]
     );
 
     const [paddingClass, setPaddingClass] = useState('p-2');
 
     useEffect(() => {
-        setContentClass(CONTENT_THEMES[contentTheme]);
+        setContentClass(CONTENT_STYLES[contentTheme]);
     }, [contentTheme]);
 
     useEffect(() => {
-        setSeparatorClass(SEPARATOR_THEMES[separatorTheme]);
+        setSeparatorClass(SEPARATOR_STYLES[separatorTheme]);
     }, [separatorTheme]);
 
     useEffect(() => {
-        setBackgroundClass(BACKGROUND_THEMES[backgroundTheme]);
+        setBackgroundClass(BACKGROUND_STYLES[backgroundTheme]);
     }, [backgroundTheme]);
 
     useEffect(() => {
-        setIconClass(CONTENT_THEMES[iconTheme]);
+        setIconClass(CONTENT_STYLES[iconTheme]);
     }, [iconTheme]);
 
     useEffect(() => {
-        setHighlightClass(HIGHLIGHT_THEMES[highlightTheme]);
+        setHighlightClass(HIGHLIGHT_STYLES[highlightTheme]);
     }, [highlightTheme]);
 
     useEffect(() => {

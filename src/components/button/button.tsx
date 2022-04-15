@@ -8,8 +8,8 @@ import './button.css';
 export interface Props {
     theme?: Theme;
     skin?: 'regular' | 'ghost' | 'outline';
-    buttonSize?: Size;
-    contentSize?: Size;
+    width?: Size;
+    size?: Size;
     label?: string;
     icon?: IconType;
     iconPosition?: Position;
@@ -27,8 +27,8 @@ export function ResponsiveButton({
     skin = 'regular',
     icon,
     iconPosition = 'right',
-    buttonSize = 'sm',
-    contentSize = 'md',
+    width = 'sm',
+    size = 'md',
     labelAlwaysVisible = false,
     uppercase = true,
     type = 'button',
@@ -60,12 +60,12 @@ export function ResponsiveButton({
     }, [theme, skin]);
 
     useEffect(() => {
-        setSizeClass(BUTTON_SIZES[buttonSize]);
-    }, [buttonSize]);
+        setSizeClass(BUTTON_SIZES[width]);
+    }, [width]);
 
     useEffect(() => {
-        setContentClass(TEXT_SIZES[contentSize]);
-    }, [contentSize]);
+        setContentClass(TEXT_SIZES[size]);
+    }, [size]);
 
     useEffect(() => {
         if (uppercase) {
@@ -100,7 +100,7 @@ export function ResponsiveButton({
             <div className={`flex justify-center items-center ${flexCol}`}>
                 {icon &&
                     (iconPosition === 'left' || iconPosition === 'top') && (
-                        <ResponsiveIcon icon={icon} size={contentSize} />
+                        <ResponsiveIcon icon={icon} size={size} />
                     )}
 
                 {label && (
@@ -115,7 +115,7 @@ export function ResponsiveButton({
                     (iconPosition === 'right' || iconPosition === 'bottom') && (
                         <ResponsiveIcon
                             icon={icon}
-                            size={contentSize}
+                            size={size}
                             className="mx-1"
                         />
                     )}

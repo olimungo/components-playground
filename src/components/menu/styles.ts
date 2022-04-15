@@ -1,4 +1,4 @@
-export const BACKGROUND_THEMES = {
+export const BACKGROUND_STYLES = {
     primary: 'bg-primary',
     secondary: 'bg-secondary',
     success: 'bg-success',
@@ -9,7 +9,7 @@ export const BACKGROUND_THEMES = {
     dark: 'bg-dark',
 };
 
-export const SEPARATOR_THEMES = {
+export const SEPARATOR_STYLES = {
     primary: 'border-primary',
     secondary: 'border-secondary',
     success: 'border-success',
@@ -20,7 +20,7 @@ export const SEPARATOR_THEMES = {
     dark: 'border-dark',
 };
 
-export const CONTENT_THEMES = {
+export const CONTENT_STYLES = {
     primary: 'text-primary',
     secondary: 'text-secondary',
     success: 'text-success',
@@ -31,7 +31,7 @@ export const CONTENT_THEMES = {
     dark: 'text-dark',
 };
 
-export const HIGHLIGHT_THEMES = {
+export const HIGHLIGHT_STYLES = {
     primary: 'hover:bg-primary',
     secondary: 'hover:bg-secondary',
     success: 'hover:bg-success',
@@ -40,4 +40,13 @@ export const HIGHLIGHT_THEMES = {
     info: 'hover:bg-info',
     light: 'hover:bg-light',
     dark: 'hover:bg-dark',
+};
+
+export const MARGIN_LEFT_STYLES = {
+    xs: 'ml-7',
+    sm: 'ml-9',
+    md: 'ml-10',
+    lg: 'ml-[3rem]',
+    xl: 'ml-[3rem]',
+    auto: 'ml-10',
 };
