@@ -13,47 +13,47 @@ const Template: ComponentStory<typeof BadgeComponent> = (args) => (
 export const ExtraSmall = Template.bind({});
 ExtraSmall.args = {
     value: '+999',
-    contentSize: 'xs',
-    theme: 'primary',
+    size: 'xs',
+    variant: 'primary',
 };
 
 export const Small = Template.bind({});
 Small.args = {
     value: '+999',
-    contentSize: 'sm',
-    theme: 'secondary',
+    size: 'sm',
+    variant: 'secondary',
 };
 
 export const Medium = Template.bind({});
 Medium.args = {
     value: '+999',
-    contentSize: 'md',
-    theme: 'warning',
+    size: 'md',
+    variant: 'warning',
 };
 
 export const Large = Template.bind({});
 Large.args = {
     value: '+999',
-    contentSize: 'lg',
-    theme: 'info',
+    size: 'lg',
+    variant: 'info',
 };
 
 export const ExtraLarge = Template.bind({});
 ExtraLarge.args = {
     value: '+999',
-    contentSize: 'xl',
-    theme: 'danger',
+    size: 'xl',
+    variant: 'danger',
 };
 
 export const SizeUndefined = Template.bind({});
 SizeUndefined.args = {
     value: '+999',
-    theme: 'danger',
+    variant: 'danger',
 };
 
 export const Auto = Template.bind({});
 Auto.args = {
     value: '+999',
-    contentSize: 'auto',
-    theme: 'danger',
+    size: 'auto',
+    variant: 'danger',
 };

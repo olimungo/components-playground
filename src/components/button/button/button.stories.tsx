@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ResponsiveButton } from 'components';
+import { Button } from 'components';
 import {
     RiCheckDoubleFill,
     RiAlertFill,
@@ -8,8 +8,8 @@ import {
 } from 'react-icons/ri';
 
 export default {
-    title: 'Playground/Actions/Button',
-    component: ResponsiveButton,
+    title: 'Playground/Actions/Button/Button',
+    component: Button,
     parameters: { controls: { sort: 'requiredFirst' } },
     argTypes: {
         icon: {
@@ -23,20 +23,10 @@ export default {
             },
         },
     },
-} as ComponentMeta<typeof ResponsiveButton>;
+} as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof ResponsiveButton> = (args) => (
-    <ResponsiveButton {...args} />
-);
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
-    label: 'Primary',
-};
-
-export const WithIcon = Template.bind({});
-WithIcon.args = {
-    label: 'Primary',
-    width: 'md',
-    icon: RiCheckDoubleFill,
-};
+export const Default = Template.bind({});
+Default.args = { label: 'Primary' };
+Default.storyName = '# Default';

@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Props, ResponsiveButton } from 'components';
+import { ButtonProps, Button } from 'components';
 import {
     RiCheckDoubleFill,
     RiAlertFill,
@@ -7,13 +7,15 @@ import {
     RiAddBoxLine,
 } from 'react-icons/ri';
 
-function ButtonsList(args: { buttons: { label: string; props: Props }[] }) {
+function ButtonsList(args: {
+    buttons: { label: string; props: ButtonProps }[];
+}) {
     const { buttons } = args;
     return (
         <div className="flex flex-wrap items-end">
             {buttons.map(({ label, props }) => (
                 <div key={label} className="flex flex-col items-center m-3">
-                    <ResponsiveButton {...props} />
+                    <Button {...props} />
                     <div className="mt-2 text-neutral-400">{label}</div>
                 </div>
             ))}
@@ -22,7 +24,7 @@ function ButtonsList(args: { buttons: { label: string; props: Props }[] }) {
 }
 
 export default {
-    title: 'Playground/Actions/Button',
+    title: 'Playground/Actions/Button/Button',
     component: ButtonsList,
 } as ComponentMeta<typeof ButtonsList>;
 
@@ -30,51 +32,51 @@ const TemplateList: ComponentStory<typeof ButtonsList> = (args) => {
     return <ButtonsList {...args} />;
 };
 
-export const Appearance = TemplateList.bind({});
-Appearance.args = {
+export const Variant = TemplateList.bind({});
+Variant.args = {
     buttons: [
         {
             label: 'Primary',
             props: {
                 label: 'Primary',
-                theme: 'primary',
+                variant: 'primary',
             },
         },
         {
             label: 'Secondary',
-            props: { label: 'Secondary', theme: 'secondary' },
+            props: { label: 'Secondary', variant: 'secondary' },
         },
         {
             label: 'Success',
-            props: { label: 'Success', theme: 'success' },
+            props: { label: 'Success', variant: 'success' },
         },
         {
             label: 'Warning',
-            props: { label: 'Warning', theme: 'warning' },
+            props: { label: 'Warning', variant: 'warning' },
         },
         {
             label: 'Info',
-            props: { label: 'Info', theme: 'info' },
+            props: { label: 'Info', variant: 'info' },
         },
         {
             label: 'Light',
-            props: { label: 'Light', theme: 'light' },
+            props: { label: 'Light', variant: 'light' },
         },
         {
             label: 'Dark',
-            props: { label: 'Dark', theme: 'dark' },
+            props: { label: 'Dark', variant: 'dark' },
         },
     ],
 };
 
-export const Uppercase = TemplateList.bind({});
-Uppercase.args = {
+export const Lowercase = TemplateList.bind({});
+Lowercase.args = {
     buttons: [
         {
             label: 'Primary',
             props: {
                 label: 'Primary',
-                theme: 'primary',
+                variant: 'primary',
                 uppercase: false,
             },
         },
@@ -82,7 +84,7 @@ Uppercase.args = {
             label: 'Secondary',
             props: {
                 label: 'Secondary',
-                theme: 'secondary',
+                variant: 'secondary',
                 uppercase: false,
             },
         },
@@ -90,7 +92,7 @@ Uppercase.args = {
             label: 'Success',
             props: {
                 label: 'Success',
-                theme: 'success',
+                variant: 'success',
                 uppercase: false,
             },
         },
@@ -98,21 +100,21 @@ Uppercase.args = {
             label: 'Warning',
             props: {
                 label: 'Warning',
-                theme: 'warning',
+                variant: 'warning',
                 uppercase: false,
             },
         },
         {
             label: 'Info',
-            props: { label: 'Info', theme: 'info', uppercase: false },
+            props: { label: 'Info', variant: 'info', uppercase: false },
         },
         {
             label: 'Light',
-            props: { label: 'Light', theme: 'light', uppercase: false },
+            props: { label: 'Light', variant: 'light', uppercase: false },
         },
         {
             label: 'Dark',
-            props: { label: 'Dark', theme: 'dark', uppercase: false },
+            props: { label: 'Dark', variant: 'dark', uppercase: false },
         },
     ],
 };
@@ -124,7 +126,7 @@ Outline.args = {
             label: 'Primary',
             props: {
                 label: 'Primary',
-                theme: 'primary',
+                variant: 'primary',
                 skin: 'outline',
             },
         },
@@ -132,7 +134,7 @@ Outline.args = {
             label: 'Secondary',
             props: {
                 label: 'Secondary',
-                theme: 'secondary',
+                variant: 'secondary',
                 skin: 'outline',
             },
         },
@@ -140,7 +142,7 @@ Outline.args = {
             label: 'Success',
             props: {
                 label: 'Success',
-                theme: 'success',
+                variant: 'success',
                 skin: 'outline',
             },
         },
@@ -148,7 +150,7 @@ Outline.args = {
             label: 'Warning',
             props: {
                 label: 'Warning',
-                theme: 'warning',
+                variant: 'warning',
                 skin: 'outline',
             },
         },
@@ -156,7 +158,7 @@ Outline.args = {
             label: 'Info',
             props: {
                 label: 'Info',
-                theme: 'info',
+                variant: 'info',
                 skin: 'outline',
             },
         },
@@ -164,7 +166,7 @@ Outline.args = {
             label: 'Light',
             props: {
                 label: 'Light',
-                theme: 'light',
+                variant: 'light',
                 skin: 'outline',
             },
         },
@@ -172,7 +174,7 @@ Outline.args = {
             label: 'Dark',
             props: {
                 label: 'Dark',
-                theme: 'dark',
+                variant: 'dark',
                 skin: 'outline',
             },
         },
@@ -186,7 +188,7 @@ Ghost.args = {
             label: 'Primary',
             props: {
                 label: 'Primary',
-                theme: 'primary',
+                variant: 'primary',
                 skin: 'ghost',
             },
         },
@@ -194,7 +196,7 @@ Ghost.args = {
             label: 'Secondary',
             props: {
                 label: 'Secondary',
-                theme: 'secondary',
+                variant: 'secondary',
                 skin: 'ghost',
             },
         },
@@ -202,7 +204,7 @@ Ghost.args = {
             label: 'Success',
             props: {
                 label: 'Success',
-                theme: 'success',
+                variant: 'success',
                 skin: 'ghost',
             },
         },
@@ -210,7 +212,7 @@ Ghost.args = {
             label: 'Warning',
             props: {
                 label: 'Warning',
-                theme: 'warning',
+                variant: 'warning',
                 skin: 'ghost',
             },
         },
@@ -218,7 +220,7 @@ Ghost.args = {
             label: 'Info',
             props: {
                 label: 'Info',
-                theme: 'info',
+                variant: 'info',
                 skin: 'ghost',
             },
         },
@@ -226,7 +228,7 @@ Ghost.args = {
             label: 'Light',
             props: {
                 label: 'Light',
-                theme: 'light',
+                variant: 'light',
                 skin: 'ghost',
             },
         },
@@ -234,21 +236,21 @@ Ghost.args = {
             label: 'Dark',
             props: {
                 label: 'Dark',
-                theme: 'dark',
+                variant: 'dark',
                 skin: 'ghost',
             },
         },
     ],
 };
 
-export const ContentSize = TemplateList.bind({});
-ContentSize.args = {
+export const Width = TemplateList.bind({});
+Width.args = {
     buttons: [
         {
             label: 'xs',
             props: {
                 label: 'XS',
-                theme: 'primary',
+                variant: 'primary',
                 width: 'xs',
             },
         },
@@ -256,7 +258,7 @@ ContentSize.args = {
             label: 'sm',
             props: {
                 label: 'SM',
-                theme: 'secondary',
+                variant: 'secondary',
                 width: 'sm',
             },
         },
@@ -264,7 +266,7 @@ ContentSize.args = {
             label: 'md',
             props: {
                 label: 'MD',
-                theme: 'success',
+                variant: 'success',
                 width: 'md',
             },
         },
@@ -272,7 +274,7 @@ ContentSize.args = {
             label: 'lg',
             props: {
                 label: 'LG',
-                theme: 'warning',
+                variant: 'warning',
                 width: 'lg',
             },
         },
@@ -280,7 +282,7 @@ ContentSize.args = {
             label: 'xl',
             props: {
                 label: 'XL',
-                theme: 'info',
+                variant: 'info',
                 width: 'xl',
             },
         },
@@ -293,8 +295,8 @@ Icon.args = {
         {
             label: 'Top',
             props: {
-                label: 'Primary',
-                theme: 'primary',
+                label: 'Check',
+                variant: 'primary',
                 icon: RiCheckDoubleFill,
                 iconPosition: 'top',
                 uppercase: false,
@@ -303,8 +305,8 @@ Icon.args = {
         {
             label: 'Bottom',
             props: {
-                label: 'XS',
-                theme: 'secondary',
+                label: 'Watch out!',
+                variant: 'secondary',
                 icon: RiAlertFill,
                 iconPosition: 'bottom',
                 width: 'xs',
@@ -314,9 +316,10 @@ Icon.args = {
         {
             label: 'Left',
             props: {
-                label: 'Left',
-                theme: 'warning',
+                label: 'Message',
+                variant: 'warning',
                 icon: RiChatNewFill,
+                iconPosition: 'left',
                 size: 'xs',
                 width: 'auto',
             },
@@ -324,8 +327,8 @@ Icon.args = {
         {
             label: 'Right',
             props: {
-                label: 'Light',
-                theme: 'light',
+                label: 'Add',
+                variant: 'info',
                 icon: RiAddBoxLine,
                 iconPosition: 'right',
                 size: 'lg',
@@ -337,10 +340,56 @@ Icon.args = {
             label: 'No label',
             props: {
                 label: '',
-                theme: 'success',
+                variant: 'success',
                 icon: RiAlertFill,
                 size: 'xs',
                 width: 'auto',
+            },
+        },
+    ],
+};
+
+export const Size = TemplateList.bind({});
+Size.args = {
+    buttons: [
+        {
+            label: 'xs',
+            props: {
+                label: 'XS',
+                variant: 'primary',
+                size: 'xs',
+            },
+        },
+        {
+            label: 'sm',
+            props: {
+                label: 'SM',
+                variant: 'secondary',
+                size: 'sm',
+            },
+        },
+        {
+            label: 'md',
+            props: {
+                label: 'MD',
+                variant: 'success',
+                size: 'md',
+            },
+        },
+        {
+            label: 'lg',
+            props: {
+                label: 'LG',
+                variant: 'warning',
+                size: 'lg',
+            },
+        },
+        {
+            label: 'xl',
+            props: {
+                label: 'XL',
+                variant: 'info',
+                size: 'xl',
             },
         },
     ],

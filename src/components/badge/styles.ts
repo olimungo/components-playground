@@ -1,4 +1,4 @@
-export const THEMES = {
+export const BADGE_VARIANT = {
     primary: {
         regular: 'bg-primary text-neutral-200',
         outline: 'border-solid border border-primary text-primary',
@@ -31,4 +31,22 @@ export const THEMES = {
         regular: 'bg-dark text-neutral-200',
         outline: 'border-solid border border-dark text-dark',
     },
+};
+
+export const BADGE_SIZES = {
+    xs: 'text-xs',
+    sm: 'text-xs',
+    md: 'text-xs',
+    lg: 'text-sm',
+    xl: 'text-sm',
+    auto: 'text-xs',
+};
+
+export const BADGE_PADDING = {
+    xs: 'px-1',
+    sm: 'px-1.5',
+    md: 'px-2',
+    lg: 'px-2.5',
+    xl: 'px-2.5',
+    auto: 'px-2',
 };

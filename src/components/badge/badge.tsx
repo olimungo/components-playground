@@ -1,47 +1,49 @@
-import { THEMES } from './themes';
-import { Size, TEXT_SIZES, Theme } from 'models';
+import { BADGE_PADDING, BADGE_SIZES, BADGE_VARIANT } from './styles';
+import { Size, Variant } from 'models';
 import { useEffect, useState } from 'react';
 
 type Props = {
     value: string;
-    theme?: Theme;
+    variant?: Variant;
     skin?: 'regular' | 'outline';
-    contentSize?: Size;
+    size?: Size;
     className?: string;
 };
 
 export function Badge({
     value,
-    theme = 'primary',
+    variant = 'primary',
     skin,
-    contentSize = 'md',
+    size = 'md',
     className,
 }: Props) {
-    const [themeClass, setThemeClass] = useState('');
+    const [variantClass, setVariantClass] = useState('');
     const [contentClass, setContentClass] = useState('');
+    const [paddingClass, setPaddingClass] = useState('');
 
     useEffect(() => {
-        const selected = THEMES[theme];
-        let themeClass = '';
+        const selected = BADGE_VARIANT[variant];
+        let variantClass = '';
 
         switch (skin) {
             case 'outline':
-                themeClass = selected.outline;
+                variantClass = selected.outline;
                 break;
             default:
-                themeClass = selected.regular;
+                variantClass = selected.regular;
         }
 
-        setThemeClass(themeClass);
-    }, [theme, skin]);
+        setVariantClass(variantClass);
+    }, [variant, skin]);
 
     useEffect(() => {
-        setContentClass(TEXT_SIZES[contentSize]);
-    }, [contentSize]);
+        setContentClass(BADGE_SIZES[size]);
+        setPaddingClass(BADGE_PADDING[size]);
+    }, [size]);
 
     return (
         <span
-            className={`${themeClass} ${contentClass} h-fit px-2 rounded-2xl ${className}`}
+            className={`${variantClass} ${contentClass} ${paddingClass} h-fit rounded-2xl ${className}`}
         >
             {value}
         </span>

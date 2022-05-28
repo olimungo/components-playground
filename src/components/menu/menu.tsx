@@ -1,21 +1,23 @@
 import { Badge } from 'components';
-import { ResponsiveIcon } from 'components';
-import { Size, TEXT_SIZES, Theme } from 'models';
+import { Icon } from 'components';
+import {
+    Size,
+    Variant,
+    TEXT_SIZES,
+    TEXT_STYLES,
+    BACKGROUND_STYLES,
+    HIGHLIGHT_STYLES,
+    BORDER_STYLES,
+} from 'models';
 import { useEffect, useState } from 'react';
 import { IconType } from 'react-icons';
-import {
-    BACKGROUND_STYLES,
-    CONTENT_STYLES,
-    HIGHLIGHT_STYLES,
-    MARGIN_LEFT_STYLES,
-    SEPARATOR_STYLES,
-} from './styles';
+import { MARGIN_LEFT_STYLES } from './styles';
 
 type ElementType = string | IconType | undefined;
 
 const dummyCallback = () => true;
 
-interface MenuItem {
+export interface MenuItem {
     key: string;
     isHeader?: boolean;
     before?: ElementType;
@@ -29,7 +31,7 @@ interface MenuItemDecoratorProps {
     value: ElementType;
     size?: Size;
     iconClass?: string;
-    badgeTheme?: Theme;
+    badgeVariant?: Variant;
     className?: string;
 }
 
@@ -37,7 +39,7 @@ function MenuItemDecorator({
     value,
     size,
     iconClass,
-    badgeTheme,
+    badgeVariant,
     className,
 }: MenuItemDecoratorProps) {
     return (
@@ -45,13 +47,13 @@ function MenuItemDecorator({
             {typeof value === 'string' ? (
                 <Badge
                     value={value}
-                    theme={badgeTheme}
-                    contentSize={size}
+                    variant={badgeVariant}
+                    size={size}
                     className={className}
                 />
             ) : (
                 value && (
-                    <ResponsiveIcon
+                    <Icon
                         icon={value}
                         size={size}
                         className={`${iconClass} ${className}`}
@@ -68,7 +70,7 @@ interface MenuItemComponentProps {
     contentClass?: string;
     separatorClass?: string;
     iconClass?: string;
-    badgeTheme?: Theme;
+    badgeVariant?: Variant;
     highlightClass?: string;
     onClick?: (key: string) => void;
 }
@@ -79,7 +81,7 @@ function MenuItemComponent({
     contentClass = '',
     separatorClass = '',
     iconClass,
-    badgeTheme,
+    badgeVariant,
     highlightClass,
     onClick = dummyCallback,
 }: MenuItemComponentProps) {
@@ -112,7 +114,7 @@ function MenuItemComponent({
                     value={menuItem.before}
                     size={size}
                     iconClass={iconClass}
-                    badgeTheme={badgeTheme}
+                    badgeVariant={badgeVariant}
                     className="mr-2"
                 />
 
@@ -122,7 +124,7 @@ function MenuItemComponent({
                     value={menuItem.after}
                     size={size}
                     iconClass={iconClass}
-                    badgeTheme={badgeTheme}
+                    badgeVariant={badgeVariant}
                 />
             </div>
 
@@ -133,10 +135,10 @@ function MenuItemComponent({
                             key={child.key}
                             menuItem={child}
                             size={size}
+                            badgeVariant={badgeVariant}
                             iconClass={iconClass}
                             contentClass={contentClass}
                             separatorClass={separatorClass}
-                            badgeTheme={badgeTheme}
                             highlightClass={highlightClass}
                             onClick={onClick}
                         />
@@ -144,73 +146,73 @@ function MenuItemComponent({
             </div>
 
             {menuItem.addSeparator && (
-                <div className={`border-b ${separatorClass} my-2`}></div>
+                <div className={`border-b ${separatorClass} my-1`}></div>
             )}
         </div>
     );
 }
 
-interface MenuProps {
+export interface MenuProps {
     menuItems: MenuItem[];
     size?: Size;
-    contentTheme?: Theme;
-    backgroundTheme?: Theme;
-    separatorTheme?: Theme;
-    iconTheme?: Theme;
-    badgeTheme?: Theme;
-    highlightTheme?: Theme;
+    contentVariant?: Variant;
+    backgroundVariant?: Variant;
+    separatorVariant?: Variant;
+    iconVariant?: Variant;
+    badgeVariant?: Variant;
+    highlightVariant?: Variant;
     onClick?: (key: string) => void;
 }
 
 export function Menu({
     menuItems = [],
     size = 'md',
-    contentTheme = 'light',
-    backgroundTheme = 'dark',
-    separatorTheme = 'light',
-    iconTheme = 'light',
-    badgeTheme = 'light',
-    highlightTheme = 'warning',
+    contentVariant = 'light',
+    backgroundVariant = 'dark',
+    separatorVariant = 'light',
+    iconVariant = 'light',
+    badgeVariant = 'light',
+    highlightVariant = 'warning',
     onClick = dummyCallback,
 }: MenuProps) {
     const [contentClass, setContentClass] = useState(
-        CONTENT_STYLES[contentTheme]
+        TEXT_STYLES[contentVariant]
     );
     const [separatorClass, setSeparatorClass] = useState(
-        SEPARATOR_STYLES[separatorTheme]
+        BORDER_STYLES[separatorVariant]
     );
 
     const [backgroundClass, setBackgroundClass] = useState(
-        BACKGROUND_STYLES[backgroundTheme]
+        BACKGROUND_STYLES[backgroundVariant]
     );
 
-    const [iconClass, setIconClass] = useState(CONTENT_STYLES[iconTheme]);
+    const [iconClass, setIconClass] = useState(TEXT_STYLES[iconVariant]);
 
     const [highlightClass, setHighlightClass] = useState(
-        HIGHLIGHT_STYLES[highlightTheme]
+        HIGHLIGHT_STYLES[highlightVariant]
     );
 
     const [paddingClass, setPaddingClass] = useState('p-2');
 
     useEffect(() => {
-        setContentClass(CONTENT_STYLES[contentTheme]);
-    }, [contentTheme]);
+        setContentClass(TEXT_STYLES[contentVariant]);
+    }, [contentVariant]);
 
     useEffect(() => {
-        setSeparatorClass(SEPARATOR_STYLES[separatorTheme]);
-    }, [separatorTheme]);
+        setSeparatorClass(BORDER_STYLES[separatorVariant]);
+    }, [separatorVariant]);
 
     useEffect(() => {
-        setBackgroundClass(BACKGROUND_STYLES[backgroundTheme]);
-    }, [backgroundTheme]);
+        setBackgroundClass(BACKGROUND_STYLES[backgroundVariant]);
+    }, [backgroundVariant]);
 
     useEffect(() => {
-        setIconClass(CONTENT_STYLES[iconTheme]);
-    }, [iconTheme]);
+        setIconClass(TEXT_STYLES[iconVariant]);
+    }, [iconVariant]);
 
     useEffect(() => {
-        setHighlightClass(HIGHLIGHT_STYLES[highlightTheme]);
-    }, [highlightTheme]);
+        setHighlightClass(HIGHLIGHT_STYLES[highlightVariant]);
+    }, [highlightVariant]);
 
     useEffect(() => {
         setPaddingClass(size === 'xs' ? 'p-2' : size === 'xl' ? 'p-4' : 'p-3');
@@ -225,10 +227,10 @@ export function Menu({
                     key={menuItem.key}
                     menuItem={menuItem}
                     size={size}
+                    badgeVariant={badgeVariant}
                     contentClass={contentClass}
                     separatorClass={separatorClass}
                     iconClass={iconClass}
-                    badgeTheme={badgeTheme}
                     highlightClass={highlightClass}
                     onClick={onClick}
                 />

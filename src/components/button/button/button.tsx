@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
 import { IconType } from 'react-icons';
-import { ResponsiveIcon } from 'components';
-import { THEMES } from './themes';
-import { Theme, Position, Size, TEXT_SIZES, BUTTON_SIZES } from 'models';
+import { Icon } from 'components';
+import { BUTTON_VARIANT, BUTTON_SIZES } from './styles';
+import { Variant, Position, Size, TEXT_SIZES } from 'models';
 import './button.css';
 
-export interface Props {
-    theme?: Theme;
+export interface ButtonProps {
+    label?: string;
+    variant?: Variant;
     skin?: 'regular' | 'ghost' | 'outline';
     width?: Size;
     size?: Size;
-    label?: string;
     icon?: IconType;
     iconPosition?: Position;
     labelAlwaysVisible?: boolean;
@@ -21,20 +21,20 @@ export interface Props {
 
 const dummyCallback = () => {};
 
-export function ResponsiveButton({
+export function Button({
     label,
-    theme = 'primary',
+    variant = 'primary',
     skin = 'regular',
     icon,
     iconPosition = 'right',
-    width = 'sm',
+    width = 'auto',
     size = 'md',
     labelAlwaysVisible = false,
     uppercase = true,
     type = 'button',
     onClick = dummyCallback,
-}: Props) {
-    const [themeClass, setThemeClass] = useState('');
+}: ButtonProps) {
+    const [variantClass, setVariantClass] = useState('');
     const [sizeClass, setSizeClass] = useState('');
     const [contentClass, setContentClass] = useState('');
     const [uppercaseClass, setUppercaseClass] = useState('');
@@ -42,22 +42,22 @@ export function ResponsiveButton({
     const [labelAlwaysVisibleClass, setLabelAlwaysVisibleClass] = useState('');
 
     useEffect(() => {
-        const selected = THEMES[theme];
-        let themeClass = '';
+        const selected = BUTTON_VARIANT[variant];
+        let variantClass = '';
 
         switch (skin) {
             case 'ghost':
-                themeClass = selected.ghost;
+                variantClass = selected.ghost;
                 break;
             case 'outline':
-                themeClass = selected.outline;
+                variantClass = selected.outline;
                 break;
             default:
-                themeClass = selected.regular;
+                variantClass = selected.regular;
         }
 
-        setThemeClass(themeClass);
-    }, [theme, skin]);
+        setVariantClass(variantClass);
+    }, [variant, skin]);
 
     useEffect(() => {
         setSizeClass(BUTTON_SIZES[width]);
@@ -94,13 +94,13 @@ export function ResponsiveButton({
     return (
         <button
             type={type}
-            className={`bounce inline cursor-pointer rounded-md px-4 py-1.5 text-neutral-200 ${themeClass} ${sizeClass} ${uppercaseClass} ${contentClass}`}
+            className={`bounce inline cursor-pointer rounded-md px-4 py-1.5 ${variantClass} ${sizeClass} ${uppercaseClass} ${contentClass}`}
             onClick={onClick}
         >
             <div className={`flex justify-center items-center ${flexCol}`}>
                 {icon &&
                     (iconPosition === 'left' || iconPosition === 'top') && (
-                        <ResponsiveIcon icon={icon} size={size} />
+                        <Icon icon={icon} size={size} className="mx-1" />
                     )}
 
                 {label && (
@@ -113,11 +113,7 @@ export function ResponsiveButton({
 
                 {icon &&
                     (iconPosition === 'right' || iconPosition === 'bottom') && (
-                        <ResponsiveIcon
-                            icon={icon}
-                            size={size}
-                            className="mx-1"
-                        />
+                        <Icon icon={icon} size={size} className="mx-1" />
                     )}
             </div>
         </button>

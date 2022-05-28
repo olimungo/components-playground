@@ -4,12 +4,12 @@ import { IconType } from 'react-icons/lib';
 import { Size } from 'models';
 
 const SIZES = {
-    xs: '1.3rem',
-    sm: '1.7rem',
-    md: '2.0rem',
-    lg: '2.3rem',
-    xl: '2.6rem',
-    auto: '2.0rem',
+    xs: '1rem',
+    sm: '1.2rem',
+    md: '1.4rem',
+    lg: '1.6rem',
+    xl: '1.8rem',
+    auto: '1.4rem',
 };
 
 type Props = {
@@ -18,7 +18,7 @@ type Props = {
     className?: string;
 };
 
-export function ResponsiveIcon(props: Props) {
+export function Icon(props: Props) {
     const { icon, size = 'md', className } = props;
     const [iconSize, setIconSize] = useState(SIZES[size]);
 

@@ -8,6 +8,7 @@ import {
     RiGlobalFill,
 } from 'react-icons/ri';
 import { HiCog } from 'react-icons/hi';
+import { MenuItem } from './menu';
 
 export default {
     title: 'Playground/Navigation/Menu',
@@ -17,7 +18,7 @@ export default {
 
 const Template: ComponentStory<typeof Menu> = (args) => <Menu {...args} />;
 
-const menuItems = [
+export const menuItems: MenuItem[] = [
     {
         key: '1',
         isHeader: true,
@@ -90,41 +91,41 @@ export const Large = Template.bind({});
 Large.args = {
     menuItems,
     size: 'lg',
-    backgroundTheme: 'primary',
-    separatorTheme: 'warning',
-    iconTheme: 'light',
-    badgeTheme: 'info',
+    backgroundVariant: 'primary',
+    separatorVariant: 'warning',
+    iconVariant: 'light',
+    badgeVariant: 'info',
 };
 
 export const ExtraSmall = Template.bind({});
 ExtraSmall.args = {
     menuItems,
     size: 'xs',
-    contentTheme: 'primary',
-    separatorTheme: 'light',
-    iconTheme: 'secondary',
-    badgeTheme: 'light',
-    highlightTheme: 'info',
+    contentVariant: 'primary',
+    separatorVariant: 'light',
+    iconVariant: 'secondary',
+    badgeVariant: 'light',
+    highlightVariant: 'info',
 };
 
 export const Small = Template.bind({});
 Small.args = {
     menuItems,
     size: 'sm',
-    contentTheme: 'primary',
-    separatorTheme: 'light',
-    iconTheme: 'secondary',
-    badgeTheme: 'light',
-    highlightTheme: 'info',
+    contentVariant: 'primary',
+    separatorVariant: 'light',
+    iconVariant: 'secondary',
+    badgeVariant: 'light',
+    highlightVariant: 'info',
 };
 
 export const ExtraLarge = Template.bind({});
 ExtraLarge.args = {
     menuItems,
     size: 'xl',
-    contentTheme: 'primary',
-    separatorTheme: 'light',
-    iconTheme: 'secondary',
-    badgeTheme: 'light',
-    highlightTheme: 'info',
+    contentVariant: 'primary',
+    separatorVariant: 'light',
+    iconVariant: 'secondary',
+    badgeVariant: 'light',
+    highlightVariant: 'info',
 };

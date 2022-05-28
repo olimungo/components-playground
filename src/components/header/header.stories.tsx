@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Header as HeaderComponent } from 'components';
 
 export default {
-    title: 'Playground/Layout',
+    title: 'Playground/Layout/Header',
     component: HeaderComponent,
 } as ComponentMeta<typeof HeaderComponent>;
 
